@@ -1,0 +1,6 @@
+#+INCLUDE: ~/.emacs.d/template/org-header-readtheorg.txt
+# You can choose readtheorg, bigblow, solarized-dark, or solarized-light.
+#+STARTUP: SHOWALL
+# SUBTITLE: A{{{NEWLINE}}}B
+#+TITLE: 
+

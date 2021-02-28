@@ -1,0 +1,13 @@
+/.cache/
+/.smex-items
+/recentf
+/transient/
+/auto-save-list/
+/games/
+/elpa/
+/lisp/init-clipboard.el
+/lisp/init-yatex.el
+/eshell/
+/url/
+/pyim/
+/ac-comphist.dat
