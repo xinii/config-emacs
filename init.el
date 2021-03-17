@@ -2,7 +2,7 @@
 (require 'package)
 
 (defvar packages
-  '(async auto-complete cider clojure-mode color-theme-sanityinc-tomorrow concurrent ctable dash deferred epc fish-mode git-commit helm helm-core htmlize jedi jedi-core magit magit-popup markdown-mode markdown-preview-mode markdown-toc popup pyim pyim-basedict python-environment rainbow-delimiters smex toml-mode uuidgen web-server websocket web-mode window-numbering with-editor xcscope yaml-mode yatex) "packages to be installed")
+  '(async auto-complete cider clojure-mode color-theme-sanityinc-tomorrow concurrent ctable dash deferred epc fish-mode git-commit helm helm-core htmlize jedi jedi-core magit magit-popup markdown-mode markdown-preview-mode markdown-toc popup pyim pyim-basedict python-environment rainbow-delimiters rjsx-mode smex toml-mode uuidgen web-server websocket web-mode window-numbering with-editor xcscope yaml-mode yatex) "packages to be installed")
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (setq site-packages (expand-file-name "site-packages" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "init-files" user-emacs-directory))
