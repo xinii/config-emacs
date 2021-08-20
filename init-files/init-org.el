@@ -1,5 +1,5 @@
-;(require 'epa-file)
-;(epa-file-enable)
+;; (require 'epa-file)
+;; (epa-file-enable)
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)));
 (setq org-startup-indented t)
 
@@ -7,15 +7,17 @@
  'org-babel-load-languages
  '((C . t)
    (R . t)
-   (ruby . t)
+   (emacs-lisp . t)
+   (java . t)
    (python . t)
-   (emacs-lisp . t)))
+   (ruby . t)
+   (sql . t)))
 
 (setq org-publish-project-alist
       '(("Bigblow"
-         :base-directory "~/OneDrive/OneSync/Documents/Note/notebook"
+         :base-directory "~/work/notebook/source"
          :base-extension "org"
-         :publishing-directory "/Volumes/dav/web/notebook"
+         :publishing-directory "~/work/notebook/target"
          :publishing-function org-html-publish-to-html
          :auto-sitemap t
          :recursive t
@@ -37,9 +39,9 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.js'></script>
 <script> document.addEventListener('DOMContentLoaded', () => { pangu.autoSpacingPage(); }); </script>")
         ("ReadTheOrg"
-         :base-directory "~/OneDrive/OneSync/Documents/Note/notebook"
+         :base-directory "~/work/notebook/source"
          :base-extension "org"
-         :publishing-directory "/Volumes/dav/web/notebook"
+         :publishing-directory "~/work/notebook/target"
          :publishing-function org-html-publish-to-html
          :auto-sitemap t
          :recursive t
@@ -56,9 +58,9 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.js'></script>
 <script> document.addEventListener('DOMContentLoaded', () => { pangu.autoSpacingPage(); }); </script>")
         ("html-norang"
-         :base-directory "~/OneDrive/OneSync/Documents/Note/notebook"
+         :base-directory "~/work/notebook/source"
          :base-extension "org"
-         :publishing-directory "~/OneDrive/OneSync/Documents/Note/notebook-html"
+         :publishing-directory "~/work/notebook/target"
          :publishing-function org-html-publish-to-html
          :auto-sitemap t
          :recursive t
@@ -70,9 +72,9 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.js'></script>
 <script> document.addEventListener('DOMContentLoaded', () => { pangu.autoSpacingPage(); }); </script>")
         ("html-worg"
-         :base-directory "~/OneDrive/OneSync/Documents/Note/notebook"
+         :base-directory "~/work/notebook/source"
          :base-extension "org"
-         :publishing-directory "~/OneDrive/OneSync/Documents/Note/notebook-html"
+         :publishing-directory "~/work/notebook/target"
          :publishing-function org-html-publish-to-html
          :auto-sitemap t
          :recursive t
@@ -84,9 +86,9 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.js'></script>
 <script> document.addEventListener('DOMContentLoaded', () => { pangu.autoSpacingPage(); }); </script>")
         ("html-blank"
-         :base-directory "~/OneDrive/OneSync/Documents/Note/notebook"
+         :base-directory "~/work/notebook/source"
          :base-extension "org"
-         :publishing-directory "~/OneDrive/OneSync/Documents/Note/notebook-html"
+         :publishing-directory "~/work/notebook/target"
          :publishing-function org-html-publish-to-html
          :auto-sitemap t
          :recursive t
@@ -97,15 +99,15 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.js'></script>
 <script> document.addEventListener('DOMContentLoaded', () => { pangu.autoSpacingPage(); }); </script>")
         ("latex-article"
-         :base-directory "~/OneDrive/OneSync/Documents/Note/notebook"
+         :base-directory "~/work/notebook/source"
          :base-extension "org"
-         :publishing-directory "~/Work/exports/article"
+         :publishing-directory "~/work/notebook/target"
          :publishing-function org-latex-publish-to-latex
          :recursive t)
         ("latex-presentation"
-         :base-directory "~/OneDrive/OneSync/Documents/Note/notebook"
+         :base-directory "~/work/notebook/source"
          :base-extension "org"
-         :publishing-directory "~/Work/exports/presentation"
+         :publishing-directory "~/work/notebook/target"
          :publishing-function org-beamer-publish-to-latex
          :recursive t)
         ("latex-all" :components ("latex-article" "latex-presentation"))))
