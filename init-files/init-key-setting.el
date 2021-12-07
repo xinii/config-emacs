@@ -49,6 +49,25 @@
 ;; (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 ;; (define-key key-translation-map (kbd "DEL") (kbd "C-h"))
 ;; (define-key key-translation-map (kbd "C-M-y") (kbd "C-M-h"))
+(define-key key-translation-map (kbd "M-[ 1 ; 5 l") (kbd "C-,"))
+(define-key key-translation-map (kbd "M-[ 1 ; 6 l") (kbd "C-<"))
+(define-key key-translation-map (kbd "M-[ 1 ; 7 l") (kbd "C-M-,"))
+(define-key key-translation-map (kbd "M-[ 1 ; 8 l") (kbd "C-M-<"))
+
+(define-key key-translation-map (kbd "M-[ 1 ; 5 n") (kbd "C-."))
+(define-key key-translation-map (kbd "M-[ 1 ; 6 n") (kbd "C->"))
+(define-key key-translation-map (kbd "M-[ 1 ; 7 n") (kbd "C-M-."))
+(define-key key-translation-map (kbd "M-[ 1 ; 8 n") (kbd "C-M->"))
+
+(define-key key-translation-map (kbd "M-[ 1 ; 5 m") (kbd "C--"))
+(define-key key-translation-map (kbd "M-[ 1 ; 6 m") (kbd "C-_"))
+(define-key key-translation-map (kbd "M-[ 1 ; 7 m") (kbd "C-M--"))
+(define-key key-translation-map (kbd "M-[ 1 ; 8 m") (kbd "C-M-_"))
+
+(define-key key-translation-map (kbd "M-[ 1 ; 5 k") (kbd "C-="))
+(define-key key-translation-map (kbd "M-[ 1 ; 6 k") (kbd "C-+"))
+(define-key key-translation-map (kbd "M-[ 1 ; 7 k") (kbd "C-M-="))
+(define-key key-translation-map (kbd "M-[ 1 ; 8 k") (kbd "C-M-+"))
 
 ;;; Key binding for Japanese and Chinese IME
 ;; 1st row of keyboard
