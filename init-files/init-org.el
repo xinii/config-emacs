@@ -112,4 +112,6 @@
          :recursive t)
         ("latex-all" :components ("latex-article" "latex-presentation"))))
 
+(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+
 (provide 'init-org)

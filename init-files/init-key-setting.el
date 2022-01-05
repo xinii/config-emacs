@@ -40,11 +40,6 @@
 ;; (add-hook 'c-mode-hook (lambda() (local-unset-key (kbd "C-c DEL"))))
 (add-hook 'web-mode-hook (lambda() (local-unset-key (kbd "C-c C-h"))))
 
-;;; Auto mode for some extension
-(add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
-
 ;;; Key translation map
 ;; (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 ;; (define-key key-translation-map (kbd "DEL") (kbd "C-h"))

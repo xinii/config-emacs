@@ -4,4 +4,8 @@
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
+(add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+
 (provide 'init-web-mode)
