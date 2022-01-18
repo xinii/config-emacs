@@ -1,5 +1,6 @@
 ;; (require 'epa-file)
 ;; (epa-file-enable)
+(require 'ox-reveal)
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)));
 (setq org-startup-indented t)
 
