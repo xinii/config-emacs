@@ -10,6 +10,7 @@
    (R . t)
    (emacs-lisp . t)
    (java . t)
+   (jupyter .t)
    (python . t)
    (ruby . t)
    (sql . t)))
