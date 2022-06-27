@@ -21,6 +21,7 @@
 (define-key global-map (kbd "C-c n i") 'org-roam-node-insert)
 (define-key global-map (kbd "C-c n o") 'org-id-get-create)
 (define-key global-map (kbd "C-c n r") 'org-roam-node-random)
+(define-key global-map (kbd "C-c n s") 'org-roam-db-sync)
 (define-key global-map (kbd "C-c n u") 'org-roam-ui-mode)
 
 (setq org-publish-project-alist
