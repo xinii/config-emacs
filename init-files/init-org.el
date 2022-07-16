@@ -17,12 +17,30 @@
    (ruby . t)
    (sql . t)))
 
+(define-key global-map (kbd "C-c n a") 'org-roam-alias-add)
 (define-key global-map (kbd "C-c n f") 'org-roam-node-find)
 (define-key global-map (kbd "C-c n i") 'org-roam-node-insert)
 (define-key global-map (kbd "C-c n o") 'org-id-get-create)
 (define-key global-map (kbd "C-c n r") 'org-roam-node-random)
 (define-key global-map (kbd "C-c n s") 'org-roam-db-sync)
+(define-key global-map (kbd "C-c n t") 'org-roam-tag-add)
 (define-key global-map (kbd "C-c n u") 'org-roam-ui-mode)
+
+(setq system-time-locale "C")
+(setf (elt org-time-stamp-rounding-minutes 1) 1)
+(setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M:%S>"))
+(setq org-time-stamp-custom-formats '("<%Y-%m-%d %A>" . "<%Y-%m-%d %A %H:%M:%S>"))
+(setq-default org-display-custom-times nil)
+(setq org-roam-capture-templates '(("d" "default" plain "%?"
+                                    :if-new
+                                    (file+head "${slug}.org"
+                                               "#+title: ${title}\n#+author: x\n#+created: %<[%Y-%m-%d %a %H:%M:%S]>\n#+modified: %U\n\n")
+                                    :immediate-finish t))
+      time-stamp-active t
+      time-stamp-start "#\\+modified: [\t]*"
+      time-stamp-end "$"
+      time-stamp-format "\[%Y-%m-%d %a %H:%M:%S\]")
+(add-hook 'before-save-hook 'time-stamp nil)
 
 (setq org-publish-project-alist
       '(("Bigblow"
