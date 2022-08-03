@@ -17,8 +17,8 @@
 (setq dvi2-command "/usr/bin/open -a Preview") ; for macos
 (setq tex-pdfview-command "/usr/bin/open -a Preview") ; for macos
 (setq dviprint-command-format "/usr/bin/open -a \"Adobe Acrobat Reader DC\" `echo %s | gsed -e \"s/\\.[^.]*$/\\.pdf/\"`") ; for macos
-(add-hook 'yatex-mode-hook '(lambda () (auto-fill-mode -1) (electric-indent-local-mode -1)))
-(add-hook 'yatex-mode-hook '(lambda () (reftex-mode 1)
+(add-hook 'yatex-mode-hook #'(lambda () (auto-fill-mode -1) (electric-indent-local-mode -1)))
+(add-hook 'yatex-mode-hook #'(lambda () (reftex-mode 1)
              (define-key reftex-mode-map (concat YaTeX-prefix ">") 'YaTeX-comment-region)
              (define-key reftex-mode-map (concat YaTeX-prefix "<") 'YaTeX-uncomment-region)))
 (provide 'init-yatex)

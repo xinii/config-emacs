@@ -1,5 +1,7 @@
 ;; (require 'epa-file)
 ;; (epa-file-enable)
+(require 'org-roam)
+(require 'org-roam-ui)
 (require 'ox-reveal)
 (require 'ox-ipynb)
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)));
@@ -11,11 +13,15 @@
    (R . t)
    (emacs-lisp . t)
    (java . t)
-   (jupyter . t)
    (lilypond . t)
    (python . t)
    (ruby . t)
    (sql . t)))
+
+(when (executable-find "jupyter")
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((jupyter . t))))
 
 (define-key global-map (kbd "C-c n a") 'org-roam-alias-add)
 (define-key global-map (kbd "C-c n f") 'org-roam-node-find)
@@ -25,12 +31,105 @@
 (define-key global-map (kbd "C-c n s") 'org-roam-db-sync)
 (define-key global-map (kbd "C-c n t") 'org-roam-tag-add)
 (define-key global-map (kbd "C-c n u") 'org-roam-ui-mode)
+(define-key global-map (kbd "C-c n x") 'org-roam-ui-export)
+
+(cl-defmethod org-roam-node-slug ((node org-roam-node))
+  "Return the slug of NODE."
+  (let ((title (org-roam-node-title node))
+        (slug-trim-chars '(768 769 770 771 772 774 775 776 777 778 779 780 795 803 804 805 807 813 814 816 817)))
+    (cl-flet* ((nonspacing-mark-p (char) (memq char slug-trim-chars))
+               (strip-nonspacing-marks (s) (string-glyph-compose
+                                            (apply #'string
+                                                   (seq-remove #'nonspacing-mark-p
+                                                               (string-glyph-decompose s)))))
+               (cl-replace (title pair) (replace-regexp-in-string (car pair) (cdr pair) title)))
+      (let* ((pairs `(("[^[:alnum:][:digit:]]" . "-") ;; convert anything not alphanumeric
+                      ("--*" . "-")                   ;; remove sequential hyphens
+                      ("^-" . "")                     ;; remove starting hyphen
+                      ("-$" . "")))                   ;; remove ending hyphen
+             (slug (-reduce-from #'cl-replace (strip-nonspacing-marks title) pairs)))
+        (downcase slug)))))
+
+(defun org-roam-ui--make-graphdata ()
+  "Get roam data and make JSON"
+  (let* ((nodes-names
+          [id
+           file
+           title
+           level
+           pos
+           olp
+           properties
+           tags])
+         (old (not (fboundp 'org-roam-db-map-citations)))
+         (links-db-rows (if old
+                            (org-roam-ui--separate-ref-links
+                             (org-roam-ui--get-links old))
+                          (seq-concatenate
+                           'list
+                           (org-roam-ui--separate-ref-links
+                            (org-roam-ui--get-cites))
+                           (org-roam-ui--get-links))))
+         (links-with-empty-refs (org-roam-ui--filter-citations links-db-rows))
+         (empty-refs (delete-dups (seq-map
+                                   (lambda (link)
+                                     (nth 1 link))
+                                   links-with-empty-refs)))
+         (nodes-db-rows (org-roam-ui--get-nodes))
+         (fake-nodes (seq-map #'org-roam-ui--create-fake-node empty-refs))
+         ;; Try to update real nodes that are reference with a title build
+         ;; from their bibliography entry. Check configuration here for avoid
+         ;; unneeded iteration though nodes.
+         (retitled-nodes-db-rows (if org-roam-ui-retitle-ref-nodes
+                                     (seq-map #'org-roam-ui--retitle-node
+                                              nodes-db-rows)
+                                   nodes-db-rows))
+         (complete-nodes-db-rows (append retitled-nodes-db-rows fake-nodes))
+         (response `((nodes . ,(mapcar
+                                (apply-partially
+                                 #'org-roam-ui-sql-to-alist
+                                 (append nodes-names nil))
+                                complete-nodes-db-rows))
+                     (links . ,(mapcar
+                                (apply-partially
+                                 #'org-roam-ui-sql-to-alist
+                                 '(source target type))
+                                links-db-rows))
+                     (tags . ,(seq-mapcat
+                               #'seq-reverse
+                               (org-roam-db-query
+                                [:select :distinct tag :from tags]))))))
+    (when old
+      (message "[org-roam-ui] You are not using the latest version of org-roam.
+This database model won't be supported in the future, please consider upgrading."))
+    (json-encode
+     `((type . "graphdata")
+       (data . ,response)))))
+
+(defun org-roam-ui--export-graphdata (file)
+  "Create a JSON-file containting graphdata."
+  (write-region (org-roam-ui--make-graphdata) nil file))
+
+(defun org-roam-ui-export ()
+  "Export `org-roam-ui's-data for usage as static webserver."
+  (interactive)
+  (let* ((dir (read-file-name "Specify output directory:"))
+         (graphdata-file (concat (file-name-as-directory dir) "graphdata.json"))
+         (notes-dir (concat (file-name-as-directory dir) "notes/")))
+    (org-roam-ui--export-graphdata graphdata-file)
+    (make-directory notes-dir :parents)
+    (mapcar (lambda (id)
+              (let* ((cid (car id))
+                     (content (org-roam-ui--get-text cid)))
+                (write-region content nil (concat notes-dir cid) 'append)))
+            (org-roam-db-query "select id from nodes;"))))
 
 (setq system-time-locale "C")
 (setf (elt org-time-stamp-rounding-minutes 1) 1)
 (setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M:%S>"))
 (setq org-time-stamp-custom-formats '("<%Y-%m-%d %A>" . "<%Y-%m-%d %A %H:%M:%S>"))
 (setq-default org-display-custom-times nil)
+(setq org-roam-directory "~/work/repositories/org-roam")
 (setq org-roam-capture-templates '(("d" "default" plain "%?"
                                     :if-new
                                     (file+head "${slug}.org"
