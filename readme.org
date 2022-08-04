@@ -1,0 +1,46 @@
+* Configuration of Emacs
+
+** Usage
+
+#+begin_src bash
+  # rm -rfv ~/.emacs.d # this command will delete the original configuration files of Emacs.
+  git clone https://github.com/xinii/config-emacs.git ~/.emacs.d
+#+end_src
+
+** Features
+
+| Feature                                                      | Shortcut      | Site package        |
+|--------------------------------------------------------------+---------------+---------------------|
+| Undo position                                                | ~M-p~         | point-undo.el       |
+| Redo position                                                | ~M-n~         | point-undo.el       |
+| Delete trailing whitespace                                   | ~C-c C-h C-d~ |                     |
+| Align right                                                  | ~C-c C-h C-e~ |                     |
+| Justify window                                               | ~C-c C-h C-h~ |                     |
+| Auto indent                                                  | ~C-c C-h C-i~ |                     |
+| Org toggle link display                                      | ~C-c C-h C-l~ |                     |
+| Open helm imenu                                              | ~C-c C-h C-o~ |                     |
+| Complete path                                                | ~C-c C-h C-p~ |                     |
+| Toggle truncate lines                                        | ~C-c C-h C-t~ |                     |
+| Comment region                                               | ~C-c C-h ;~   |                     |
+| Uncomment region and clean whitespace                        | ~C-c C-h C-u~ |                     |
+| Enable whitespace mode                                       | ~C-c C-h C-w~ |                     |
+| Translate between English and Japanese with Google translate | ~C-c C-h j~   | google-translate.el |
+| Translate between English and Chinese with Google translate  | ~C-c C-h c~   | google-translate.el |
+| Translate Chinese to Japanese with Google translate          | ~C-c C-h J~   | google-translate.el |
+| Translate Japanese to Chinese with Google translate          | ~C-c C-h C~   | google-translate.el |
+| Open lookup buffer to manage dictionaries                    | ~C-x l~       | lookup.el           |
+| Look up the selected word                                    | ~C-x y~       | lookup.el           |
+| Look up a word                                               | ~C-x C-y~     | lookup.el           |
+| Find or create a org-roam node                               | ~C-c n f~     | org-roam.el         |
+| Insert node to current org file                              | ~C-c n i~     | org-roam.el         |
+| Sync DB of org-roam                                          | ~C-c n s~     | org-roam.el         |
+| Enable org-roam-ui mode                                      | ~C-c n u~     | org-roam.el         |
+| Export the graph data of org-roam-ui                         | ~C-c n x~     | org-roam.el         |
+| Export to reveal.js HTML presentation                        | ~C-c C-e R R~ |                     |
+| Export to jupyter notebook                                   | ~C-c C-e n n~ |                     |
+
+** License
+
+This project is just a configuration for Emacs, you can refer to it for your configuration.
+The rights to the site packages used belong to their respective authors.
+Please follow each license.
