@@ -28,10 +28,11 @@
 (define-key global-map (kbd "C-c C-h C-l") 'org-toggle-link-display)
 (define-key global-map (kbd "C-c C-h C-o") 'helm-imenu)
 (define-key global-map (kbd "C-c C-h C-p") 'complete-path)
-(define-key global-map (kbd "C-c C-h C-t") 'toggle-truncate-lines)
-(define-key global-map (kbd "C-c C-h ;") 'comment-region)
 (define-key global-map (kbd "C-c C-h C-u") 'uncomment-region-clean-whitespace)
 (define-key global-map (kbd "C-c C-h C-w") 'whitespace-mode)
+(define-key global-map (kbd "C-c C-h ;") 'comment-region)
+(define-key global-map (kbd "C-c C-h t") 'toggle-truncate-lines)
+(define-key global-map (kbd "C-c C-h v") 'global-visual-line-mode)
 
 ;;; Enable some disabled functions for advanced-level Emacs users
 (put 'downcase-region 'disabled nil)

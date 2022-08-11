@@ -20,10 +20,11 @@
 | Org toggle link display                                      | ~C-c C-h C-l~ |                     |
 | Open helm imenu                                              | ~C-c C-h C-o~ |                     |
 | Complete path                                                | ~C-c C-h C-p~ |                     |
-| Toggle truncate lines                                        | ~C-c C-h C-t~ |                     |
-| Comment region                                               | ~C-c C-h ;~   |                     |
 | Uncomment region and clean whitespace                        | ~C-c C-h C-u~ |                     |
 | Enable whitespace mode                                       | ~C-c C-h C-w~ |                     |
+| Comment region                                               | ~C-c C-h ;~   |                     |
+| Toggle truncate lines                                        | ~C-c C-h t~   |                     |
+| Global visual line mode                                      | ~C-c C-h v~   |                     |
 | Translate between English and Japanese with Google translate | ~C-c C-h j~   | google-translate.el |
 | Translate between English and Chinese with Google translate  | ~C-c C-h c~   | google-translate.el |
 | Translate Chinese to Japanese with Google translate          | ~C-c C-h J~   | google-translate.el |
