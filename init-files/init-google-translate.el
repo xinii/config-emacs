@@ -46,9 +46,9 @@
     (google-translate-translate (if asciip "ja" "ja")
 				(if asciip "zh-CN" "zh-CN") string)))
 
-(global-set-key (kbd "C-c C-h j") 'google-translate-en-ja)
-(global-set-key (kbd "C-c C-h c") 'google-translate-en-zh)
-(global-set-key (kbd "C-c C-h J") 'google-translate-zh-ja)
-(global-set-key (kbd "C-c C-h C") 'google-translate-ja-zh)
+;; (global-set-key (kbd "C-c C-h j") 'google-translate-en-ja)
+;; (global-set-key (kbd "C-c C-h c") 'google-translate-en-zh)
+;; (global-set-key (kbd "C-c C-h J") 'google-translate-zh-ja)
+;; (global-set-key (kbd "C-c C-h C") 'google-translate-ja-zh)
 
 (provide 'init-google-translate)

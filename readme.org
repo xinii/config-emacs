@@ -3,7 +3,9 @@
 ** Usage
 
 #+begin_src bash
-  # rm -rfv ~/.emacs.d # this command will delete the original configuration files of Emacs.
+  # rm -rf ~/.emacs.d # this command will delete the original configuration files of Emacs.
+  git clone https://github.com/xinii/config-emacs.git ~/.config/emacs # need `rm -rf ~/.emacs.d` first
+  # or
   git clone https://github.com/xinii/config-emacs.git ~/.emacs.d
 #+end_src
 
@@ -13,30 +15,40 @@
 |--------------------------------------------------------------+---------------+---------------------|
 | Undo position                                                | ~M-p~         | point-undo.el       |
 | Redo position                                                | ~M-n~         | point-undo.el       |
-| Delete trailing whitespace                                   | ~C-c C-h C-d~ |                     |
-| Align right                                                  | ~C-c C-h C-e~ |                     |
-| Justify window                                               | ~C-c C-h C-h~ |                     |
-| Auto indent                                                  | ~C-c C-h C-i~ |                     |
-| Org toggle link display                                      | ~C-c C-h C-l~ |                     |
-| Open helm imenu                                              | ~C-c C-h C-o~ |                     |
-| Complete path                                                | ~C-c C-h C-p~ |                     |
-| Uncomment region and clean whitespace                        | ~C-c C-h C-u~ |                     |
-| Enable whitespace mode                                       | ~C-c C-h C-w~ |                     |
-| Comment region                                               | ~C-c C-h ;~   |                     |
-| Toggle truncate lines                                        | ~C-c C-h t~   |                     |
-| Global visual line mode                                      | ~C-c C-h v~   |                     |
-| Translate between English and Japanese with Google translate | ~C-c C-h j~   | google-translate.el |
-| Translate between English and Chinese with Google translate  | ~C-c C-h c~   | google-translate.el |
-| Translate Chinese to Japanese with Google translate          | ~C-c C-h J~   | google-translate.el |
-| Translate Japanese to Chinese with Google translate          | ~C-c C-h C~   | google-translate.el |
-| Open lookup buffer to manage dictionaries                    | ~C-x l~       | lookup.el           |
-| Look up the selected word                                    | ~C-x y~       | lookup.el           |
-| Look up a word                                               | ~C-x C-y~     | lookup.el           |
-| Find or create a org-roam node                               | ~C-c n f~     | org-roam.el         |
-| Insert node to current org file                              | ~C-c n i~     | org-roam.el         |
-| Sync DB of org-roam                                          | ~C-c n s~     | org-roam.el         |
-| Enable org-roam-ui mode                                      | ~C-c n u~     | org-roam.el         |
-| Export the graph data of org-roam-ui                         | ~C-c n x~     | org-roam.el         |
+|--------------------------------------------------------------+---------------+---------------------|
+| Auto indent                                                  | ~M-o M-i~     |                     |
+| Complete path                                                | ~M-o M-p~     |                     |
+| Comment region                                               | ~M-o M-;~     |                     |
+| Uncomment region and clean whitespace                        | ~M-o M-u~     |                     |
+|--------------------------------------------------------------+---------------+---------------------|
+| Add alias for org-roam node                                  | ~s-a~         | org-roam.el         |
+| Add ID to org-mode file                                      | ~s-d~         | org-roam.el         |
+| Find or create a org-roam node                               | ~s-f~         | org-roam.el         |
+| Insert node to current org file                              | ~s-i~         | org-roam.el         |
+| Open a node randomly                                         | ~s-r~         | org-roam.el         |
+| Sync DB of org-roam                                          | ~s-s~         | org-roam.el         |
+| Add file tag to org-roam node                                | ~s-t~         | org-roam.el         |
+| Enable org-roam-ui mode                                      | ~s-u~         | org-roam.el         |
+| Export the graph data of org-roam-ui                         | ~s-x~         | org-roam.el         |
+|--------------------------------------------------------------+---------------+---------------------|
+| Open lookup buffer to manage dictionaries                    | ~s-DEL~       | lookup.el           |
+| Look up the selected word                                    | ~s-RET~       | lookup.el           |
+| Look up a word                                               | ~s-SPC~       | lookup.el           |
+|--------------------------------------------------------------+---------------+---------------------|
+| Translate between English and Japanese with Google translate | ~s-[~         | google-translate.el |
+| Translate between English and Chinese with Google translate  | ~s-]~         | google-translate.el |
+| Translate Chinese to Japanese with Google translate          | ~H-[~         | google-translate.el |
+| Translate Japanese to Chinese with Google translate          | ~H-]~         | google-translate.el |
+|--------------------------------------------------------------+---------------+---------------------|
+| Delete trailing whitespace                                   | ~H-d~         |                     |
+| Org toggle link display                                      | ~H-l~         |                     |
+| Align right                                                  | ~H-r~         |                     |
+| Toggle truncate lines                                        | ~H-t~         |                     |
+| Global visual line mode                                      | ~H-v~         |                     |
+| Enable whitespace mode                                       | ~H-w~         |                     |
+| Toggle lockfile creation                                     | ~C-H-l~       |                     |
+| Suspend frame                                                | ~C-s-x C-c~   |                     |
+|--------------------------------------------------------------+---------------+---------------------|
 | Export to reveal.js HTML presentation                        | ~C-c C-e R R~ |                     |
 | Export to jupyter notebook                                   | ~C-c C-e n n~ |                     |
 

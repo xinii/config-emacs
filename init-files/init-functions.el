@@ -65,4 +65,11 @@
   (interactive)
   (enlarge-window-horizontally 40))
 
+(defun toggle-lockfile-creation ()
+  (interactive)
+  (if create-lockfiles
+      (progn (setq create-lockfiles nil) (message "create-lockfiles nil"))
+    (progn
+      (setq create-lockfiles t) (message "create-lockfiles t"))))
+
 (provide 'init-functions)

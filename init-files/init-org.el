@@ -23,16 +23,6 @@
    'org-babel-load-languages
    '((jupyter . t))))
 
-(define-key global-map (kbd "C-c n a") 'org-roam-alias-add)
-(define-key global-map (kbd "C-c n f") 'org-roam-node-find)
-(define-key global-map (kbd "C-c n i") 'org-roam-node-insert)
-(define-key global-map (kbd "C-c n o") 'org-id-get-create)
-(define-key global-map (kbd "C-c n r") 'org-roam-node-random)
-(define-key global-map (kbd "C-c n s") 'org-roam-db-sync)
-(define-key global-map (kbd "C-c n t") 'org-roam-tag-add)
-(define-key global-map (kbd "C-c n u") 'org-roam-ui-mode)
-(define-key global-map (kbd "C-c n x") 'org-roam-ui-export)
-
 (cl-defmethod org-roam-node-slug ((node org-roam-node))
   "Return the slug of NODE."
   (let ((title (org-roam-node-title node))

@@ -21,18 +21,39 @@
 (define-key global-map (kbd "C-x C-z") 'point-redo)
 (define-key global-map (kbd "M-p") 'point-undo)
 (define-key global-map (kbd "M-n") 'point-redo)
-(define-key global-map (kbd "C-c C-h C-d") 'delete-trailing-whitespace)
-(define-key global-map (kbd "C-c C-h C-e") 'justify-right-line)
-(define-key global-map (kbd "C-c C-h C-h") 'justify-window)
-(define-key global-map (kbd "C-c C-h C-i") 'all-indent)
-(define-key global-map (kbd "C-c C-h C-l") 'org-toggle-link-display)
-(define-key global-map (kbd "C-c C-h C-o") 'helm-imenu)
-(define-key global-map (kbd "C-c C-h C-p") 'complete-path)
-(define-key global-map (kbd "C-c C-h C-u") 'uncomment-region-clean-whitespace)
-(define-key global-map (kbd "C-c C-h C-w") 'whitespace-mode)
-(define-key global-map (kbd "C-c C-h ;") 'comment-region)
-(define-key global-map (kbd "C-c C-h t") 'toggle-truncate-lines)
-(define-key global-map (kbd "C-c C-h v") 'global-visual-line-mode)
+
+(define-key global-map (kbd "M-o M-i") 'all-indent)
+(define-key global-map (kbd "M-o M-p") 'complete-path)
+(define-key global-map (kbd "M-o M-;") 'comment-region)
+(define-key global-map (kbd "M-o M-u") 'uncomment-region-clean-whitespace)
+
+(define-key global-map (kbd "s-a") 'org-roam-alias-add)
+(define-key global-map (kbd "s-d") 'org-id-get-create)
+(define-key global-map (kbd "s-f") 'org-roam-node-find)
+(define-key global-map (kbd "s-i") 'org-roam-node-insert)
+(define-key global-map (kbd "s-r") 'org-roam-node-random)
+(define-key global-map (kbd "s-s") 'org-roam-db-sync)
+(define-key global-map (kbd "s-t") 'org-roam-tag-add)
+(define-key global-map (kbd "s-u") 'org-roam-ui-mode)
+(define-key global-map (kbd "s-x") 'org-roam-ui-export)
+
+(define-key global-map (kbd "s-DEL") 'lookup)
+(define-key global-map (kbd "s-RET") 'lookup-region)
+(define-key global-map (kbd "s-SPC") 'lookup-pattern)
+
+(define-key global-map (kbd "s-[") 'google-translate-en-ja)
+(define-key global-map (kbd "s-]") 'google-translate-en-zh)
+(define-key global-map (kbd "H-[") 'google-translate-zh-ja)
+(define-key global-map (kbd "H-]") 'google-translate-ja-zh)
+
+(define-key global-map (kbd "H-d") 'delete-trailing-whitespace)
+(define-key global-map (kbd "H-l") 'org-toggle-link-display)
+(define-key global-map (kbd "H-r") 'justify-right-line)
+(define-key global-map (kbd "H-t") 'toggle-truncate-lines)
+(define-key global-map (kbd "H-v") 'global-visual-line-mode)
+(define-key global-map (kbd "H-w") 'whitespace-mode)
+(define-key global-map (kbd "C-H-l") 'toggle-lockfile-creation)
+(define-key global-map (kbd "C-s-x C-c") 'suspend-frame)
 
 ;;; Enable some disabled functions for advanced-level Emacs users
 (put 'downcase-region 'disabled nil)
@@ -41,12 +62,16 @@
 
 ;;; Unset key for some major mode
 ;; (add-hook 'c-mode-hook (lambda() (local-unset-key (kbd "C-c DEL"))))
-(add-hook 'web-mode-hook (lambda() (local-unset-key (kbd "C-c C-h"))))
+;; (add-hook 'web-mode-hook (lambda() (local-unset-key (kbd "C-c C-h"))))
 
 ;;; Key translation map
 ;; (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 ;; (define-key key-translation-map (kbd "DEL") (kbd "C-h"))
 ;; (define-key key-translation-map (kbd "C-M-y") (kbd "C-M-h"))
+
+(define-key key-translation-map (kbd "s-<backspace>") (kbd "s-DEL"))
+(define-key key-translation-map (kbd "s-<return>") (kbd "s-RET"))
+
 (define-key key-translation-map (kbd "M-[ 1 ; 5 l") (kbd "C-,"))
 (define-key key-translation-map (kbd "M-[ 1 ; 6 l") (kbd "C-<"))
 (define-key key-translation-map (kbd "M-[ 1 ; 7 l") (kbd "C-M-,"))
