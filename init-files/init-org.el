@@ -21,7 +21,9 @@
 (when (executable-find "jupyter")
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((jupyter . t))))
+   '((jupyter . t)))
+  (define-key jupyter-org-interaction-mode-map (kbd "C-s-c h") #'jupyter-org-hydra/body)
+  (define-key jupyter-org-interaction-mode-map (kbd "C-c h") nil))
 
 (cl-defmethod org-roam-node-slug ((node org-roam-node))
   "Return the slug of NODE."

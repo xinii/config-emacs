@@ -9,7 +9,7 @@
 (window-numbering-mode)
 (menu-bar-mode 0) ; menu bar: 1 for show, 0 for not show
 (tool-bar-mode 0) ; tool bar: 1 for show, 0 for not show
-(scroll-bar-mode 0) ; scroll bar: 1 for show, 0 for not show
+;; (scroll-bar-mode 0) ; scroll bar: 1 for show, 0 for not show
 (show-paren-mode t) ; 対応する括弧を強調して表示する
 (transient-mark-mode t) ; 選択範囲に色をつける
 ;; (global-visual-line-mode t) ; 表示の改行 Wrap on
