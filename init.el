@@ -24,9 +24,11 @@
 (dolist (pkg packages) (unless (package-installed-p pkg) (package-install pkg)))
 (when (file-exists-p custom-file) (load custom-file))
 
+(defconst *is-a-linux* (eq system-type 'gnu/linux))
 (defconst *is-a-mac* (eq system-type 'darwin))
-(when *is-a-mac* (require 'init-overtone))
+(defconst *is-a-windows* (eq system-type 'windows-nt))
 
+(when *is-a-mac* (require 'init-overtone))
 (require 'init-auto-complete)
 (require 'init-auto-insert)
 (require 'init-clipboard)
