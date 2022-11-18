@@ -39,6 +39,7 @@
 (define-key global-map (kbd "s-DEL") 'lookup)
 (define-key global-map (kbd "s-RET") 'lookup-region)
 (define-key global-map (kbd "s-SPC") 'lookup-pattern)
+(define-key global-map (kbd "<backtab>") 'lookup-content-previous-tab-stop)
 
 (define-key global-map (kbd "s-[") 'google-translate-en-ja)
 (define-key global-map (kbd "s-]") 'google-translate-en-zh)
@@ -87,6 +88,7 @@
 
 (define-key key-translation-map (kbd "s-<backspace>") (kbd "s-DEL"))
 (define-key key-translation-map (kbd "s-<return>") (kbd "s-RET"))
+(define-key key-translation-map (kbd "<S-iso-lefttab>") (kbd "<backtab>"))
 
 (define-key key-translation-map (kbd "M-[ 1 ; 5 l") (kbd "C-,"))
 (define-key key-translation-map (kbd "M-[ 1 ; 6 l") (kbd "C-<"))

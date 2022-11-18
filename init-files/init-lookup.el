@@ -8,6 +8,7 @@
 ;; (define-key ctl-x-map "l" 'lookup)
 ;; (define-key ctl-x-map "y" 'lookup-region)
 ;; (define-key ctl-x-map "\C-y" 'lookup-pattern)
+
 (when *is-a-linux*
   (setq lookup-search-agents
         '(
