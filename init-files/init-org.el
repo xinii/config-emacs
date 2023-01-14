@@ -14,6 +14,7 @@
    (emacs-lisp . t)
    (java . t)
    (lilypond . t)
+   (plantuml . t)
    (python . t)
    (ruby . t)
    (sql . t)))
@@ -24,6 +25,10 @@
    '((jupyter . t)))
   (define-key jupyter-org-interaction-mode-map (kbd "C-s-c h") #'jupyter-org-hydra/body)
   (define-key jupyter-org-interaction-mode-map (kbd "C-c h") nil))
+
+(setq org-plantuml-jar-path-linux "/usr/share/plantuml/plantuml.jar")
+(when (file-exists-p org-plantuml-jar-path-linux)
+  (custom-set-variables '(org-plantuml-jar-path org-plantuml-jar-path-linux)))
 
 (cl-defmethod org-roam-node-slug ((node org-roam-node))
   "Return the slug of NODE."

@@ -39,6 +39,8 @@
 (define-key global-map (kbd "s-DEL") 'lookup)
 (define-key global-map (kbd "s-RET") 'lookup-region)
 (define-key global-map (kbd "s-SPC") 'lookup-pattern)
+(define-key global-map (kbd "s-　") 'lookup-pattern)
+(define-key global-map (kbd "s-ã") 'lookup-pattern)
 (define-key global-map (kbd "<backtab>") 'lookup-content-previous-tab-stop)
 
 (define-key global-map (kbd "s-[") 'google-translate-en-ja)
