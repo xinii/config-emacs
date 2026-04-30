@@ -1,59 +1,157 @@
-* Configuration of Emacs
+* Emacs Configuration / Emacs設定
 
-** Usage
+** Installation / インストール
 
 #+begin_src bash
-  # rm -rf ~/.emacs.d # this command will delete the original configuration files of Emacs.
-  git clone https://github.com/xinii/config-emacs.git ~/.config/emacs # need `rm -rf ~/.emacs.d` first
+  # Remove existing config (optional)
+  rm -rf ~/.emacs.d
+
+  # Clone this repository
+  git clone https://github.com/xinii/config-emacs.git ~/.config/emacs
   # or
   git clone https://github.com/xinii/config-emacs.git ~/.emacs.d
 #+end_src
 
-** Features
+- EN: Clone the repo and start Emacs.
+- JA: リポジトリをクローンしてEmacsを起動するだけです。
 
-| Feature                                                      | Shortcut      | Site package        |
-|--------------------------------------------------------------+---------------+---------------------|
-| Undo position                                                | ~M-p~         | point-undo.el       |
-| Redo position                                                | ~M-n~         | point-undo.el       |
-|--------------------------------------------------------------+---------------+---------------------|
-| Auto indent                                                  | ~M-o M-i~     |                     |
-| Complete path                                                | ~M-o M-p~     |                     |
-| Comment region                                               | ~M-o M-;~     |                     |
-| Uncomment region and clean whitespace                        | ~M-o M-u~     |                     |
-|--------------------------------------------------------------+---------------+---------------------|
-| Add alias for org-roam node                                  | ~s-a~         | org-roam.el         |
-| Add ID to org-mode file                                      | ~s-d~         | org-roam.el         |
-| Find or create a org-roam node                               | ~s-f~         | org-roam.el         |
-| Insert node to current org file                              | ~s-i~         | org-roam.el         |
-| Open a node randomly                                         | ~s-r~         | org-roam.el         |
-| Sync DB of org-roam                                          | ~s-s~         | org-roam.el         |
-| Add file tag to org-roam node                                | ~s-t~         | org-roam.el         |
-| Enable org-roam-ui mode                                      | ~s-u~         | org-roam.el         |
-| Export the graph data of org-roam-ui                         | ~s-x~         | org-roam.el         |
-|--------------------------------------------------------------+---------------+---------------------|
-| Open lookup buffer to manage dictionaries                    | ~s-DEL~       | lookup.el           |
-| Look up the selected word                                    | ~s-RET~       | lookup.el           |
-| Look up a word                                               | ~s-SPC~       | lookup.el           |
-|--------------------------------------------------------------+---------------+---------------------|
-| Translate between English and Japanese with Google translate | ~s-[~         | google-translate.el |
-| Translate between English and Chinese with Google translate  | ~s-]~         | google-translate.el |
-| Translate Chinese to Japanese with Google translate          | ~H-[~         | google-translate.el |
-| Translate Japanese to Chinese with Google translate          | ~H-]~         | google-translate.el |
-|--------------------------------------------------------------+---------------+---------------------|
-| Delete trailing whitespace                                   | ~H-d~         |                     |
-| Org toggle link display                                      | ~H-l~         |                     |
-| Align right                                                  | ~H-r~         |                     |
-| Toggle truncate lines                                        | ~H-t~         |                     |
-| Global visual line mode                                      | ~H-v~         |                     |
-| Enable whitespace mode                                       | ~H-w~         |                     |
-| Toggle lockfile creation                                     | ~C-H-l~       |                     |
-| Suspend frame                                                | ~C-s-x C-c~   |                     |
-|--------------------------------------------------------------+---------------+---------------------|
-| Export to reveal.js HTML presentation                        | ~C-c C-e R R~ |                     |
-| Export to jupyter notebook                                   | ~C-c C-e n n~ |                     |
+---
 
-** License
+** Features / 主な機能
 
-This project is just a configuration for Emacs, you can refer to it for your configuration.
-The rights to the site packages used belong to their respective authors.
-Please follow each license.
+| Feature                              | Shortcut        | Package          |
+|--------------------------------------+-----------------+------------------|
+| Undo cursor position                 | ~M-p~           | point-undo       |
+| Redo cursor position                 | ~M-n~           | point-undo       |
+|--------------------------------------+-----------------+------------------|
+| Auto indent                          | ~M-o M-i~       | built-in         |
+| Complete file path                   | ~M-o M-p~       | built-in         |
+| Comment region                       | ~M-o M-;~       | built-in         |
+| Uncomment + clean whitespace         | ~M-o M-u~       | built-in         |
+|--------------------------------------+-----------------+------------------|
+| Inline completion popup              | (auto)          | corfu            |
+| Expand completion at point           | ~M-TAB~         | corfu / cape     |
+| LSP completion / diagnostics         | (auto)          | eglot            |
+|--------------------------------------+-----------------+------------------|
+| Command search (M-x enhanced)        | ~M-x~           | consult          |
+| Buffer switch                        | ~C-x C-b~       | consult          |
+| File search                          | ~C-x C-f~       | consult          |
+| Line search                          | ~C-s~           | consult          |
+| Project search                       | ~C-c p s~       | consult + projectile |
+|--------------------------------------+-----------------+------------------|
+| Minibuffer narrowing & filtering     | (auto)          | vertico + orderless |
+| Rich annotations in minibuffer       | (auto)          | marginalia       |
+|--------------------------------------+-----------------+------------------|
+| Project switch                       | ~C-c p p~       | projectile       |
+| Project find file                    | ~C-c p f~       | projectile       |
+|--------------------------------------+-----------------+------------------|
+| Org-roam: find/create node           | ~s-f~           | org-roam         |
+| Org-roam: insert node                | ~s-i~           | org-roam         |
+| Org-roam: random node                | ~s-r~           | org-roam         |
+| Org-roam: sync DB                    | ~s-s~           | org-roam         |
+| Org-roam: add alias                  | ~s-a~           | org-roam         |
+| Org-roam: add ID                     | ~s-d~           | org-roam         |
+| Org-roam: add tag                    | ~s-t~           | org-roam         |
+| Org-roam UI                          | ~s-u~           | org-roam-ui      |
+| Export org-roam graph                | ~s-x~           | org-roam-ui      |
+|--------------------------------------+-----------------+------------------|
+| Dictionary lookup                    | ~s-SPC~         | lookup           |
+| Lookup selection                     | ~s-RET~         | lookup           |
+| Open dictionary buffer               | ~s-DEL~         | lookup           |
+|--------------------------------------+-----------------+------------------|
+| Translate EN ↔ JA                    | ~s-[~           | google-translate |
+| Translate EN ↔ ZH                    | ~s-]~           | google-translate |
+| Translate ZH → JA                    | ~H-[~           | google-translate |
+| Translate JA → ZH                    | ~H-]~           | google-translate |
+|--------------------------------------+-----------------+------------------|
+| Delete trailing whitespace           | ~H-d~           | built-in         |
+| Toggle org link display              | ~H-l~           | built-in         |
+| Align right                          | ~H-r~           | built-in         |
+| Toggle truncate lines                | ~H-t~           | built-in         |
+| Toggle visual line mode              | ~H-v~           | built-in         |
+| Toggle whitespace mode               | ~H-w~           | built-in         |
+| Toggle lockfile                      | ~C-H-l~         | built-in         |
+| Suspend frame                        | ~C-s-x C-c~     | built-in         |
+|--------------------------------------+-----------------+------------------|
+| Export to reveal.js                  | ~C-c C-e R R~   | ox-reveal        |
+| Export to Jupyter notebook           | ~C-c C-e n n~   | org / jupyter    |
+|--------------------------------------+-----------------+------------------|
+| ChatGPT interaction                  | (interactive)   | gptel            |
+
+** Architecture / 構成
+
+Modern, minimal, and close to upstream Emacs.
+
+モダンで最小構成、かつEmacs標準に近い設計。
+
+- Completion UI: ~corfu~
+- Matching style: ~orderless~
+- Minibuffer UI: ~vertico~
+- Search & commands: ~consult~
+- Annotations: ~marginalia~
+- Completion sources: ~cape~
+- LSP client: ~eglot~
+- Projects: ~projectile~
+- AI: ~gptel~
+
+---
+
+** Migration (Old → New) / 移行
+
+| Area              | Old                        | New                         |
+|-------------------+----------------------------+-----------------------------|
+| Completion        | auto-complete + popup      | corfu                       |
+| Python            | jedi                       | eglot + pyright             |
+| Search UI         | helm                       | vertico                     |
+| Matching          | helm                       | orderless                   |
+| M-x               | smex                       | consult                     |
+| Metadata          | none                       | marginalia                  |
+| Async             | deferred / concurrent      | native                      |
+| RPC               | epc                        | LSP (eglot)                 |
+| Git popup         | magit-popup                | built-in                    |
+| Projects          | none                       | projectile                  |
+| AI                | none                       | gptel                       |
+
+---
+
+** Philosophy / 設計思想
+
+Less, but better.
+
+少なく、しかし良く。
+
+- Drop large frameworks (helm, auto-complete)
+- Prefer built-in + small packages
+- Use LSP as the standard interface
+
+#+begin_quote
+Small, composable pieces over monolithic systems.
+#+end_quote
+
+---
+
+** Notes / 注意
+
+Terminal users (~emacs -nw~):
+
+#+begin_src elisp
+(use-package corfu-terminal
+  :after corfu
+  :config
+  (corfu-terminal-mode 1))
+#+end_src
+
+- EN: Required for popup completion in terminal
+- JA: ターミナルで補完UIを表示するために必要
+
+LSP:
+
+- EN: Requires external servers (e.g. pyright)
+- JA: 外部LSPサーバー（例: pyright）が必要
+
+---
+
+* License / ライセンス
+
+- EN: Personal configuration. Follow each package's license.
+- JA: 個人用設定です。各パッケージのライセンスに従ってください。

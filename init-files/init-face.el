@@ -16,7 +16,7 @@
 (fset 'yes-or-no-p 'y-or-n-p) ; from yes or no to y or no
 (color-theme-sanityinc-tomorrow-bright)
 (set-face-background 'region "chocolate") ; 選択範囲の色 color-209 -> orange
-(set-face-attribute 'default nil :family "Sarasa Fixed J" :height 300) ; Font and window size
+(set-face-attribute 'default nil :family "JetBrainsMono Nerd Font" :height 300) ; Font and window size
 
 ;; パラメータ設定
 (setq visible-bell 1)

@@ -1,6 +1,5 @@
 ;;;; Lilypond settings
 
-(require 'auto-complete)
 (require 'lilypond-mode)
 
 (autoload 'LilyPond-mode "lilypond-mode" "LilyPond Editing Mode" t)
@@ -23,16 +22,5 @@
 
 (defvar ac-lilypond-ncreserved-words
   '((candidates . (lambda () (all-completions ac-target LilyPond-non-capitalized-reserved-words)))))
-
-(add-hook 'LilyPond-mode-hook
-	  (lambda () "Makes autocomplete work in LilyPond mode (mostly)"
-	    (make-local-variable 'ac-sources)
-	    (setq ac-sources '(ac-lilypond-ncreserved-words
-			       ac-lilypond-Creserved-words
-			       ac-lilypond-keywords 
-			       ac-lilypond-identifiers ;these don't work. why?
-			       ac-source-abbrev
-			       ac-source-words-in-buffer))
-	    (auto-complete-mode 1)))
 
 (provide 'init-lilypond)

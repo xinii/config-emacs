@@ -11,8 +11,10 @@
 /lisp/init-clipboard.el
 /lisp/init-yatex.el
 /org-roam.db
+/projectile-bookmarks.eld
 /pyim/
 /recentf
 /request/
 /transient/
+/tramp
 /url/

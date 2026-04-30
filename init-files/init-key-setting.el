@@ -1,5 +1,7 @@
 ;;;; Key settings
 
+(global-set-key (kbd "C-x b") #'ibuffer)
+
 ;;; Hyper, Super, Alt
 
 ;; Turn `C-]' into a sticky "super" modifier, and move the global binding for C-] to C-s-]
