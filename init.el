@@ -3,7 +3,7 @@
 (setq warning-minimum-level :emergency)
 
 (defvar packages
-  '(async cider clojure-mode color-theme-sanityinc-tomorrow dash ddskk fish-mode google-translate htmlize jupyter magit markdown-mode markdown-preview-mode markdown-toc mermaid-mode org-mind-map org-roam org-roam-ui ox-reveal plantuml-mode powershell pyim pyim-basedict rainbow-delimiters rjsx-mode toml-mode typescript-mode uuidgen web-server websocket web-mode window-numbering with-editor xcscope yaml-mode yatex vertico orderless consult marginalia corfu cape eglot magit gptel projectile) "packages to be installed")
+  '(async cider clojure-mode color-theme-sanityinc-tomorrow dash ddskk fish-mode google-translate htmlize jupyter magit markdown-mode markdown-preview-mode markdown-toc mermaid-mode org-mind-map org-roam org-roam-ui ox-reveal plantuml-mode powershell pyim pyim-basedict rainbow-delimiters rjsx-mode toml-mode typescript-mode uuidgen web-server websocket web-mode window-numbering with-editor xcscope yaml-mode yatex vertico orderless consult marginalia corfu corfu-terminal cape eglot magit gptel projectile) "packages to be installed")
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (setq site-packages (expand-file-name "site-packages" user-emacs-directory))

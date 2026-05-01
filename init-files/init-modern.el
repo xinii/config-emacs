@@ -27,6 +27,9 @@
   (corfu-auto-delay 0.1)
   (corfu-auto-prefix 1))
 
+(require 'corfu-terminal)
+(corfu-terminal-mode 1)
+
 (use-package cape
   :init
   ;; 優先度低めで追加
@@ -53,9 +56,9 @@
   (setq gptel-model 'gpt-4.1-mini)
   (setq gptel-backend
         (gptel-make-openai
-         "OpenAI"
-         :key (getenv "OPENAI_API_KEY")
-         :stream t))
+            "OpenAI"
+          :key (getenv "OPENAI_API_KEY")
+          :stream t))
   (global-set-key (kbd "C-c g") #'gptel))
 
 ;;; ================= Project =================

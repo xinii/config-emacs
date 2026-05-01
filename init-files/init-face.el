@@ -17,10 +17,13 @@
 (color-theme-sanityinc-tomorrow-bright)
 (set-face-background 'region "chocolate") ; 選択範囲の色 color-209 -> orange
 (set-face-attribute 'default nil :family "JetBrainsMono Nerd Font" :height 300) ; Font and window size
+(set-face-attribute 'fixed-pitch nil :family "Sarasa Fixed J")
+(dolist (charset '(kana han symbol cjk-misc japanese-jisx0208 japanese-jisx0212))
+  (set-fontset-font t charset (font-spec :family "Sarasa Fixed J")))
 
 ;; パラメータ設定
 (setq visible-bell 1)
-(setq initial-frame-alist (append (list '(top . 200) '(left . 2200) '(width . 120) '(height . 30)) initial-frame-alist)) ; only for personal desktop
+(setq initial-frame-alist (append (list '(top . 3) '(left . 3) '(width . 79) '(height . 26)) initial-frame-alist)) ; only for personal desktop
 (setq default-frame-alist initial-frame-alist) ; 起動時に表示位置とサイズを設定する
 ;; (setq w1 (selected-window)) ; 起動時に分割
 ;; (setq w2 (split-window w1 nil t)) ; 左右
@@ -34,6 +37,5 @@
 (setq initial-scratch-message "") ; (setq inhibit-startup-screen t)
 (setq-default indent-tabs-mode nil)
 ;; (setq show-paren-style 'expression) ; 括弧内を強調
-;; (set-fontset-font nil 'japanese-jisx0208 (font-spec :family "" :size 15))
 
 (provide 'init-face)

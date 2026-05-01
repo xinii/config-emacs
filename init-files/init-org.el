@@ -7,6 +7,11 @@
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)));
 (setq org-startup-indented t)
 
+(with-eval-after-load 'org
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-verbatim nil :inherit 'fixed-pitch))
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((C . t)
