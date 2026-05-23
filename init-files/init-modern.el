@@ -14,7 +14,9 @@
   (marginalia-mode))
 
 (use-package consult
-  :bind (("C-s" . consult-line)
+  :bind (("C-c c l" . consult-line)
+         ("C-c c i" . consult-imenu)
+         ("C-c c g" . consult-goto-line)
          ("C-x C-b" . consult-buffer)
          ("M-x" . execute-extended-command)))
 
@@ -48,7 +50,10 @@
 
 ;;; ================= Git =================
 (use-package magit
-  :bind ("C-x g" . magit-status))
+  :bind ("C-c s" . magit-status)
+  :bind ("C-c b" . magit-blame))
+
+(setq vc-handled-backends nil)
 
 ;;; ================= AI =================
 (use-package gptel
@@ -65,6 +70,7 @@
 (use-package projectile
   :init
   (projectile-mode)
+  (setq projectile-mode-line-prefix " 📁")
   :bind-keymap ("C-c p" . projectile-command-map))
 
 (provide 'init-modern)
