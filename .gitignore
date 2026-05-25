@@ -1,4 +1,5 @@
 /.cache/
+/eln-cache/
 /.org-id-locations
 /.smex-items
 /ac-comphist.dat

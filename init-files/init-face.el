@@ -21,6 +21,53 @@
 (dolist (charset '(kana han symbol cjk-misc japanese-jisx0208 japanese-jisx0212))
   (set-fontset-font t charset (font-spec :family "Sarasa Fixed J")))
 
+(defun my-frame-font-increase ()
+  (interactive)
+  (let* ((current (face-attribute 'default :height))
+         (new (+ current 150)))
+    (set-face-attribute 'default (selected-frame) :height new)))
+
+(defun my-frame-font-decrease ()
+  (interactive)
+  (let* ((current (face-attribute 'default :height))
+         (new (- current 150)))
+    (set-face-attribute 'default (selected-frame) :height new)))
+
+(defun my-frame-move-left ()
+  (interactive)
+  (set-frame-position
+   nil
+   (- (frame-parameter nil 'left) 300)
+   (frame-parameter nil 'top)))
+
+(defun my-frame-move-right ()
+  (interactive)
+  (set-frame-position
+   nil
+   (+ (frame-parameter nil 'left) 300)
+   (frame-parameter nil 'top)))
+
+(defun my-frame-move-up ()
+  (interactive)
+  (set-frame-position
+   nil
+   (frame-parameter nil 'left)
+   (- (frame-parameter nil 'top) 300)))
+
+(defun my-frame-move-down ()
+  (interactive)
+  (set-frame-position
+   nil
+   (frame-parameter nil 'left)
+   (+ (frame-parameter nil 'top) 300)))
+
+(global-set-key (kbd "C-s-=") #'my-frame-font-increase)
+(global-set-key (kbd "C-s--") #'my-frame-font-decrease)
+(global-set-key (kbd "C-s-b") #'my-frame-move-left)
+(global-set-key (kbd "C-s-f") #'my-frame-move-right)
+(global-set-key (kbd "C-s-p") #'my-frame-move-up)
+(global-set-key (kbd "C-s-n") #'my-frame-move-down)
+
 ;; パラメータ設定
 (setq visible-bell 1)
 (setq initial-frame-alist (append (list '(top . 3) '(left . 3) '(width . 79) '(height . 26)) initial-frame-alist)) ; only for personal desktop
